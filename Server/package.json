@@ -44,7 +44,9 @@
     "apps/auth-service",
     "apps/auth-service-e2e",
     "apps/campaign-service",
-    "apps/campaign-service-e2e"
+    "apps/campaign-service-e2e",
+    "apps/scheduler-service",
+    "apps/scheduler-service-e2e"
   ],
   "dependencies": {
     "@nestjs/common": "^11.0.0",

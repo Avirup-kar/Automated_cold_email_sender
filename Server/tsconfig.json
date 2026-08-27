@@ -20,6 +20,12 @@
     },
     {
       "path": "./apps/campaign-service"
+    },
+    {
+      "path": "./apps/scheduler-service-e2e"
+    },
+    {
+      "path": "./apps/scheduler-service"
     }
   ],
   "compilerOptions": {}
