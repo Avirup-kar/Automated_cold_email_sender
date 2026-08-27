@@ -40,7 +40,9 @@
   },
   "workspaces": [
     "packages/*",
-    "app/*"
+    "app/*",
+    "apps/auth-service",
+    "apps/auth-service-e2e"
   ],
   "dependencies": {
     "@nestjs/common": "^11.0.0",
