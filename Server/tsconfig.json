@@ -26,6 +26,12 @@
     },
     {
       "path": "./apps/scheduler-service"
+    },
+    {
+      "path": "./apps/gmail-service-e2e"
+    },
+    {
+      "path": "./apps/gmail-service"
     }
   ],
   "compilerOptions": {}

@@ -55,7 +55,8 @@
         "app/api-gateway-e2e/**/*",
         "apps/auth-service-e2e/**/*",
         "apps/campaign-service-e2e/**/*",
-        "apps/scheduler-service-e2e/**/*"
+        "apps/scheduler-service-e2e/**/*",
+        "apps/gmail-service-e2e/**/*"
       ]
     }
   ],
