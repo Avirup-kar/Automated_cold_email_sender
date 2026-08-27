@@ -2,6 +2,13 @@
   "extends": "./tsconfig.base.json",
   "compileOnSave": false,
   "files": [],
-  "references": [],
+  "references": [
+    {
+      "path": "./app/api-gateway-e2e"
+    },
+    {
+      "path": "./app/api-gateway"
+    }
+  ],
   "compilerOptions": {}
 }
