@@ -51,7 +51,11 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["app/api-gateway-e2e/**/*", "apps/auth-service-e2e/**/*"]
+      "exclude": [
+        "app/api-gateway-e2e/**/*",
+        "apps/auth-service-e2e/**/*",
+        "apps/campaign-service-e2e/**/*"
+      ]
     }
   ],
   "analytics": false,

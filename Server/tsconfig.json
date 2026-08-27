@@ -14,6 +14,12 @@
     },
     {
       "path": "./apps/auth-service"
+    },
+    {
+      "path": "./apps/campaign-service-e2e"
+    },
+    {
+      "path": "./apps/campaign-service"
     }
   ],
   "compilerOptions": {}
