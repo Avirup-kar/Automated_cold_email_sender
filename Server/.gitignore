@@ -49,3 +49,6 @@ Thumbs.db
 .nx/self-healing
 .nx/migrate-runs
 test-output
+node_modules/
+dist/
+.env

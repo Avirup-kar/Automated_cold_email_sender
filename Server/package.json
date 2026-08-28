@@ -1,8 +1,12 @@
 {
   "name": "@org/source",
+  "type": "module",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "postinstall": "prisma skills sync || exit 0",
+    "contract:emit": "prisma contract emit"
+  },
   "private": true,
   "devDependencies": {
     "@eslint/js": "^9.8.0",
@@ -16,12 +20,13 @@
     "@nx/node": "23.1.2",
     "@nx/web": "23.1.2",
     "@nx/webpack": "23.1.2",
+    "@prisma/cli-engine": "^0.2.3",
     "@swc-node/register": "1.11.1",
     "@swc/core": "1.15.8",
     "@swc/helpers": "0.5.18",
     "@swc/jest": "~0.2.38",
     "@types/jest": "~30.0.0",
-    "@types/node": "^24.0.0",
+    "@types/node": "^24.13.3",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
     "jest": "~30.3.0",
@@ -29,6 +34,7 @@
     "jest-util": "~30.3.0",
     "nx": "23.1.1",
     "prettier": "^3.8.1",
+    "prisma": "^8.0.0-rc.10",
     "ts-jest": "^29.4.7",
     "ts-node": "10.9.1",
     "tslib": "^2.3.0",
@@ -54,7 +60,10 @@
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0",
     "@nestjs/platform-express": "^11.0.0",
+    "@prisma/client": "^7.10.0",
+    "@prisma/orm-postgres": "^8.0.0-rc.8",
     "axios": "^1.6.0",
+    "dotenv": "^17.4.2",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.0"
   }

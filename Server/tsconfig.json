@@ -4,6 +4,9 @@
   "files": [],
   "references": [
     {
+      "path": "./tsconfig.prisma.json"
+    },
+    {
       "path": "./app/api-gateway-e2e"
     },
     {
@@ -34,5 +37,10 @@
       "path": "./apps/gmail-service"
     }
   ],
-  "compilerOptions": {}
+  "compilerOptions": {
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "types": ["node"]
+  }
 }
