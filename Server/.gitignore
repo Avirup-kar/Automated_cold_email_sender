@@ -52,3 +52,5 @@ test-output
 node_modules/
 dist/
 .env
+
+/src/generated/prisma
