@@ -15,7 +15,14 @@ module.exports = {
       compiler: 'tsc',
       main: './src/main.ts',
       tsConfig: './tsconfig.app.json',
-      assets: ['./src/assets'],
+      assets: [
+        './src/assets',
+        {
+          input: '../../libs/proto/src',
+          glob: 'auth.proto',
+          output: 'proto',
+        },
+      ],
       optimization: false,
       outputHashing: 'none',
       generatePackageJson: false,
