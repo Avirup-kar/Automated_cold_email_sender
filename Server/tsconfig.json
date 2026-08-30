@@ -4,15 +4,6 @@
   "files": [],
   "references": [
     {
-      "path": "./tsconfig.prisma.json"
-    },
-    {
-      "path": "./app/api-gateway-e2e"
-    },
-    {
-      "path": "./app/api-gateway"
-    },
-    {
       "path": "./apps/auth-service-e2e"
     },
     {
@@ -35,6 +26,15 @@
     },
     {
       "path": "./apps/gmail-service"
+    },
+    {
+      "path": "./libs/database"
+    },
+    {
+      "path": "./apps/api-gateway-e2e"
+    },
+    {
+      "path": "./apps/api-gateway"
     }
   ],
   "compilerOptions": {

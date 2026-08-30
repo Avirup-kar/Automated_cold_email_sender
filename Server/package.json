@@ -53,7 +53,8 @@
     "apps/scheduler-service",
     "apps/scheduler-service-e2e",
     "apps/gmail-service",
-    "apps/gmail-service-e2e"
+    "apps/gmail-service-e2e",
+    "libs/*"
   ],
   "dependencies": {
     "@nestjs/common": "^11.0.0",
