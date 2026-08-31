@@ -45,7 +45,7 @@
   },
   "workspaces": [
     "packages/*",
-    "app/*",
+    "apps/*",
     "apps/auth-service",
     "apps/auth-service-e2e",
     "apps/campaign-service",

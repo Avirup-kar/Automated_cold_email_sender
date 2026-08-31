@@ -11,7 +11,7 @@
           "env": {
             "NODE_ENV": "production"
           },
-          "cwd": "app/api-gateway"
+          "cwd": "apps/api-gateway"
         },
         "configurations": {
           "development": {
@@ -22,26 +22,22 @@
         }
       },
       "prune-lockfile": {
-        "dependsOn": [
-          "build"
-        ],
+        "dependsOn": ["build"],
         "cache": true,
         "executor": "@nx/js:prune-lockfile",
         "outputs": [
-          "{workspaceRoot}/app/api-gateway/dist/package.json",
-          "{workspaceRoot}/app/api-gateway/dist/package-lock.json"
+          "{workspaceRoot}/apps/api-gateway/dist/package.json",
+          "{workspaceRoot}/apps/api-gateway/dist/package-lock.json"
         ],
         "options": {
           "buildTarget": "build"
         }
       },
       "copy-workspace-modules": {
-        "dependsOn": [
-          "build"
-        ],
+        "dependsOn": ["build"],
         "cache": true,
         "outputs": [
-          "{workspaceRoot}/app/api-gateway/dist/workspace_modules"
+          "{workspaceRoot}/apps/api-gateway/dist/workspace_modules"
         ],
         "executor": "@nx/js:copy-workspace-modules",
         "options": {
@@ -59,9 +55,7 @@
         "continuous": true,
         "executor": "@nx/js:node",
         "defaultConfiguration": "development",
-        "dependsOn": [
-          "build"
-        ],
+        "dependsOn": ["build"],
         "options": {
           "buildTarget": "@org/api-gateway:build",
           "runBuildTargetDependencies": false
@@ -69,9 +63,6 @@
         "configurations": {
           "development": {
             "buildTarget": "@org/api-gateway:build:development"
-          },
-          "production": {
-            "buildTarget": "@org/api-gateway:build:production"
           }
         }
       },
@@ -82,7 +73,7 @@
       }
     }
   },
-  "dependencies": {
+"dependencies": {
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0",
     "@nestjs/platform-express": "^11.0.0",
