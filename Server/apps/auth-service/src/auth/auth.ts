@@ -14,16 +14,16 @@ const auth = betterAuth({
 
   trustedOrigins: [process.env.FRONTEND_URL!], // e.g. http://localhost:3000
 
-  advanced: {
-    useSecureCookies: true,
+  // advanced: {
+  //   useSecureCookies: true,
 
-    defaultCookieAttributes: {
-      httpOnly: true,
-      secure: true,
-      sameSite: 'none',
-      path: '/',
-    },
-  },
+  //   defaultCookieAttributes: {
+  //     httpOnly: true,
+  //     secure: true,
+  //     sameSite: 'none',
+  //     path: '/',
+  //   },
+  // },
 
   socialProviders: {
     google: {
