@@ -3,8 +3,22 @@ import { betterAuth } from 'better-auth';
 import { prismaAdapter } from 'better-auth/adapters/prisma';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { PrismaClient } from '@org/database';
+import { setDefaultAutoSelectFamily } from 'node:net';
 
-const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
+const databaseUrl = process.env.DATABASE_URL;
+
+if (!databaseUrl) {
+  throw new Error('DATABASE_URL environment variable is not defined');
+}
+
+// This environment has no working IPv6 route. Node's automatic family
+// selection can therefore time out before pg establishes an IPv4 connection.
+setDefaultAutoSelectFamily(false);
+
+const connectionUrl = new URL(databaseUrl);
+connectionUrl.searchParams.set('sslmode', 'verify-full');
+
+const adapter = new PrismaPg({ connectionString: connectionUrl.toString() });
 const prisma = new PrismaClient({ adapter });
 
 const auth = betterAuth({
