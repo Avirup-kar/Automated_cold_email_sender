@@ -152,6 +152,7 @@ export const CampaignRecipientScalarFieldEnum = {
   id: 'id',
   campaignId: 'campaignId',
   email: 'email',
+  subject: 'subject',
   message: 'message',
   status: 'status',
   sentAt: 'sentAt',

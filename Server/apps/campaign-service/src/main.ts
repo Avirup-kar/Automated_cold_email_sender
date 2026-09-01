@@ -3,19 +3,26 @@
  * This is only a minimal backend to get started.
  */
 
-import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app/app.module';
+import { MicroserviceOptions, Transport } from '@nestjs/microservices';
+import { join } from 'node:path';
+
+import { CampaignModule } from './app/campaign.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
-  const port = process.env.PORT || 3000;
-  await app.listen(port);
-  Logger.log(
-    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`,
+  const app = await NestFactory.createMicroservice<MicroserviceOptions>(
+    CampaignModule,
+    {
+      transport: Transport.GRPC,
+      options: {
+        package: 'campaign',
+        protoPath: join(__dirname, 'proto', 'campaign.proto'),
+        url: process.env.CAMPAIGN_SERVICE_GRPC_URL ?? '0.0.0.0:50052',
+      },
+    },
   );
+
+  await app.listen();
 }
 
 bootstrap();

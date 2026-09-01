@@ -22,7 +22,9 @@
         }
       },
       "prune-lockfile": {
-        "dependsOn": ["build"],
+        "dependsOn": [
+          "build"
+        ],
         "cache": true,
         "executor": "@nx/js:prune-lockfile",
         "outputs": [
@@ -34,7 +36,9 @@
         }
       },
       "copy-workspace-modules": {
-        "dependsOn": ["build"],
+        "dependsOn": [
+          "build"
+        ],
         "cache": true,
         "outputs": [
           "{workspaceRoot}/apps/api-gateway/dist/workspace_modules"
@@ -55,7 +59,9 @@
         "continuous": true,
         "executor": "@nx/js:node",
         "defaultConfiguration": "development",
-        "dependsOn": ["build"],
+        "dependsOn": [
+          "build"
+        ],
         "options": {
           "buildTarget": "@org/api-gateway:build",
           "runBuildTargetDependencies": false
@@ -73,10 +79,12 @@
       }
     }
   },
-"dependencies": {
+  "dependencies": {
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0",
     "@nestjs/platform-express": "^11.0.0",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
     "http-proxy-middleware": "^2.0.10",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.0",

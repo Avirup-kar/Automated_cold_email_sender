@@ -21,7 +21,7 @@ module.exports = {
         './src/assets',
         {
           input: '../../libs/proto/src',
-          glob: 'auth.proto',
+          glob: '*.proto',
           output: 'proto',
         },
       ],

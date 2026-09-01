@@ -3,7 +3,7 @@
  * This is only a minimal backend to get started.
  */
 
-import { Logger } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { json, urlencoded } from 'express';
 import { createProxyMiddleware } from 'http-proxy-middleware';
@@ -38,6 +38,14 @@ async function bootstrap() {
   // Keep normal Nest HTTP endpoints body-parser enabled after the proxy.
   app.use(json());
   app.use(urlencoded({ extended: true }));
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      whitelist: true,
+      forbidNonWhitelisted: true,
+    }),
+  );
 
   await app.listen(port);
   Logger.log(

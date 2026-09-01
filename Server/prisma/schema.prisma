@@ -103,6 +103,7 @@ model CampaignRecipient {
   id         String          @id @default(cuid())
   campaignId String
   email      String
+  subject    String
   message    String
   status     RecipientStatus @default(PENDING)
   sentAt     DateTime?

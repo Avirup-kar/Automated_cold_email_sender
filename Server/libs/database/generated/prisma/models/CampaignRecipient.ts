@@ -28,6 +28,7 @@ export type CampaignRecipientMinAggregateOutputType = {
   id: string | null
   campaignId: string | null
   email: string | null
+  subject: string | null
   message: string | null
   status: $Enums.RecipientStatus | null
   sentAt: Date | null
@@ -40,6 +41,7 @@ export type CampaignRecipientMaxAggregateOutputType = {
   id: string | null
   campaignId: string | null
   email: string | null
+  subject: string | null
   message: string | null
   status: $Enums.RecipientStatus | null
   sentAt: Date | null
@@ -52,6 +54,7 @@ export type CampaignRecipientCountAggregateOutputType = {
   id: number
   campaignId: number
   email: number
+  subject: number
   message: number
   status: number
   sentAt: number
@@ -66,6 +69,7 @@ export type CampaignRecipientMinAggregateInputType = {
   id?: true
   campaignId?: true
   email?: true
+  subject?: true
   message?: true
   status?: true
   sentAt?: true
@@ -78,6 +82,7 @@ export type CampaignRecipientMaxAggregateInputType = {
   id?: true
   campaignId?: true
   email?: true
+  subject?: true
   message?: true
   status?: true
   sentAt?: true
@@ -90,6 +95,7 @@ export type CampaignRecipientCountAggregateInputType = {
   id?: true
   campaignId?: true
   email?: true
+  subject?: true
   message?: true
   status?: true
   sentAt?: true
@@ -175,6 +181,7 @@ export type CampaignRecipientGroupByOutputType = {
   id: string
   campaignId: string
   email: string
+  subject: string
   message: string
   status: $Enums.RecipientStatus
   sentAt: Date | null
@@ -208,6 +215,7 @@ export type CampaignRecipientWhereInput = {
   id?: Prisma.StringFilter<"CampaignRecipient"> | string
   campaignId?: Prisma.StringFilter<"CampaignRecipient"> | string
   email?: Prisma.StringFilter<"CampaignRecipient"> | string
+  subject?: Prisma.StringFilter<"CampaignRecipient"> | string
   message?: Prisma.StringFilter<"CampaignRecipient"> | string
   status?: Prisma.EnumRecipientStatusFilter<"CampaignRecipient"> | $Enums.RecipientStatus
   sentAt?: Prisma.DateTimeNullableFilter<"CampaignRecipient"> | Date | string | null
@@ -221,6 +229,7 @@ export type CampaignRecipientOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   campaignId?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  subject?: Prisma.SortOrder
   message?: Prisma.SortOrder
   status?: Prisma.SortOrder
   sentAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -237,6 +246,7 @@ export type CampaignRecipientWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.CampaignRecipientWhereInput | Prisma.CampaignRecipientWhereInput[]
   campaignId?: Prisma.StringFilter<"CampaignRecipient"> | string
   email?: Prisma.StringFilter<"CampaignRecipient"> | string
+  subject?: Prisma.StringFilter<"CampaignRecipient"> | string
   message?: Prisma.StringFilter<"CampaignRecipient"> | string
   status?: Prisma.EnumRecipientStatusFilter<"CampaignRecipient"> | $Enums.RecipientStatus
   sentAt?: Prisma.DateTimeNullableFilter<"CampaignRecipient"> | Date | string | null
@@ -250,6 +260,7 @@ export type CampaignRecipientOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   campaignId?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  subject?: Prisma.SortOrder
   message?: Prisma.SortOrder
   status?: Prisma.SortOrder
   sentAt?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -268,6 +279,7 @@ export type CampaignRecipientScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"CampaignRecipient"> | string
   campaignId?: Prisma.StringWithAggregatesFilter<"CampaignRecipient"> | string
   email?: Prisma.StringWithAggregatesFilter<"CampaignRecipient"> | string
+  subject?: Prisma.StringWithAggregatesFilter<"CampaignRecipient"> | string
   message?: Prisma.StringWithAggregatesFilter<"CampaignRecipient"> | string
   status?: Prisma.EnumRecipientStatusWithAggregatesFilter<"CampaignRecipient"> | $Enums.RecipientStatus
   sentAt?: Prisma.DateTimeNullableWithAggregatesFilter<"CampaignRecipient"> | Date | string | null
@@ -279,6 +291,7 @@ export type CampaignRecipientScalarWhereWithAggregatesInput = {
 export type CampaignRecipientCreateInput = {
   id?: string
   email: string
+  subject: string
   message: string
   status?: $Enums.RecipientStatus
   sentAt?: Date | string | null
@@ -292,6 +305,7 @@ export type CampaignRecipientUncheckedCreateInput = {
   id?: string
   campaignId: string
   email: string
+  subject: string
   message: string
   status?: $Enums.RecipientStatus
   sentAt?: Date | string | null
@@ -303,6 +317,7 @@ export type CampaignRecipientUncheckedCreateInput = {
 export type CampaignRecipientUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  subject?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumRecipientStatusFieldUpdateOperationsInput | $Enums.RecipientStatus
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -316,6 +331,7 @@ export type CampaignRecipientUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   campaignId?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  subject?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumRecipientStatusFieldUpdateOperationsInput | $Enums.RecipientStatus
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -328,6 +344,7 @@ export type CampaignRecipientCreateManyInput = {
   id?: string
   campaignId: string
   email: string
+  subject: string
   message: string
   status?: $Enums.RecipientStatus
   sentAt?: Date | string | null
@@ -339,6 +356,7 @@ export type CampaignRecipientCreateManyInput = {
 export type CampaignRecipientUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  subject?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumRecipientStatusFieldUpdateOperationsInput | $Enums.RecipientStatus
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -351,6 +369,7 @@ export type CampaignRecipientUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   campaignId?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  subject?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumRecipientStatusFieldUpdateOperationsInput | $Enums.RecipientStatus
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -373,6 +392,7 @@ export type CampaignRecipientCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   campaignId?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  subject?: Prisma.SortOrder
   message?: Prisma.SortOrder
   status?: Prisma.SortOrder
   sentAt?: Prisma.SortOrder
@@ -385,6 +405,7 @@ export type CampaignRecipientMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   campaignId?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  subject?: Prisma.SortOrder
   message?: Prisma.SortOrder
   status?: Prisma.SortOrder
   sentAt?: Prisma.SortOrder
@@ -397,6 +418,7 @@ export type CampaignRecipientMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   campaignId?: Prisma.SortOrder
   email?: Prisma.SortOrder
+  subject?: Prisma.SortOrder
   message?: Prisma.SortOrder
   status?: Prisma.SortOrder
   sentAt?: Prisma.SortOrder
@@ -454,6 +476,7 @@ export type EnumRecipientStatusFieldUpdateOperationsInput = {
 export type CampaignRecipientCreateWithoutCampaignInput = {
   id?: string
   email: string
+  subject: string
   message: string
   status?: $Enums.RecipientStatus
   sentAt?: Date | string | null
@@ -465,6 +488,7 @@ export type CampaignRecipientCreateWithoutCampaignInput = {
 export type CampaignRecipientUncheckedCreateWithoutCampaignInput = {
   id?: string
   email: string
+  subject: string
   message: string
   status?: $Enums.RecipientStatus
   sentAt?: Date | string | null
@@ -506,6 +530,7 @@ export type CampaignRecipientScalarWhereInput = {
   id?: Prisma.StringFilter<"CampaignRecipient"> | string
   campaignId?: Prisma.StringFilter<"CampaignRecipient"> | string
   email?: Prisma.StringFilter<"CampaignRecipient"> | string
+  subject?: Prisma.StringFilter<"CampaignRecipient"> | string
   message?: Prisma.StringFilter<"CampaignRecipient"> | string
   status?: Prisma.EnumRecipientStatusFilter<"CampaignRecipient"> | $Enums.RecipientStatus
   sentAt?: Prisma.DateTimeNullableFilter<"CampaignRecipient"> | Date | string | null
@@ -517,6 +542,7 @@ export type CampaignRecipientScalarWhereInput = {
 export type CampaignRecipientCreateManyCampaignInput = {
   id?: string
   email: string
+  subject: string
   message: string
   status?: $Enums.RecipientStatus
   sentAt?: Date | string | null
@@ -528,6 +554,7 @@ export type CampaignRecipientCreateManyCampaignInput = {
 export type CampaignRecipientUpdateWithoutCampaignInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  subject?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumRecipientStatusFieldUpdateOperationsInput | $Enums.RecipientStatus
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -539,6 +566,7 @@ export type CampaignRecipientUpdateWithoutCampaignInput = {
 export type CampaignRecipientUncheckedUpdateWithoutCampaignInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  subject?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumRecipientStatusFieldUpdateOperationsInput | $Enums.RecipientStatus
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -550,6 +578,7 @@ export type CampaignRecipientUncheckedUpdateWithoutCampaignInput = {
 export type CampaignRecipientUncheckedUpdateManyWithoutCampaignInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
+  subject?: Prisma.StringFieldUpdateOperationsInput | string
   message?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumRecipientStatusFieldUpdateOperationsInput | $Enums.RecipientStatus
   sentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -564,6 +593,7 @@ export type CampaignRecipientSelect<ExtArgs extends runtime.Types.Extensions.Int
   id?: boolean
   campaignId?: boolean
   email?: boolean
+  subject?: boolean
   message?: boolean
   status?: boolean
   sentAt?: boolean
@@ -577,6 +607,7 @@ export type CampaignRecipientSelectCreateManyAndReturn<ExtArgs extends runtime.T
   id?: boolean
   campaignId?: boolean
   email?: boolean
+  subject?: boolean
   message?: boolean
   status?: boolean
   sentAt?: boolean
@@ -590,6 +621,7 @@ export type CampaignRecipientSelectUpdateManyAndReturn<ExtArgs extends runtime.T
   id?: boolean
   campaignId?: boolean
   email?: boolean
+  subject?: boolean
   message?: boolean
   status?: boolean
   sentAt?: boolean
@@ -603,6 +635,7 @@ export type CampaignRecipientSelectScalar = {
   id?: boolean
   campaignId?: boolean
   email?: boolean
+  subject?: boolean
   message?: boolean
   status?: boolean
   sentAt?: boolean
@@ -611,7 +644,7 @@ export type CampaignRecipientSelectScalar = {
   updatedAt?: boolean
 }
 
-export type CampaignRecipientOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "campaignId" | "email" | "message" | "status" | "sentAt" | "error" | "createdAt" | "updatedAt", ExtArgs["result"]["campaignRecipient"]>
+export type CampaignRecipientOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "campaignId" | "email" | "subject" | "message" | "status" | "sentAt" | "error" | "createdAt" | "updatedAt", ExtArgs["result"]["campaignRecipient"]>
 export type CampaignRecipientInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   campaign?: boolean | Prisma.CampaignDefaultArgs<ExtArgs>
 }
@@ -631,6 +664,7 @@ export type $CampaignRecipientPayload<ExtArgs extends runtime.Types.Extensions.I
     id: string
     campaignId: string
     email: string
+    subject: string
     message: string
     status: $Enums.RecipientStatus
     sentAt: Date | null
@@ -1064,6 +1098,7 @@ export interface CampaignRecipientFieldRefs {
   readonly id: Prisma.FieldRef<"CampaignRecipient", 'String'>
   readonly campaignId: Prisma.FieldRef<"CampaignRecipient", 'String'>
   readonly email: Prisma.FieldRef<"CampaignRecipient", 'String'>
+  readonly subject: Prisma.FieldRef<"CampaignRecipient", 'String'>
   readonly message: Prisma.FieldRef<"CampaignRecipient", 'String'>
   readonly status: Prisma.FieldRef<"CampaignRecipient", 'RecipientStatus'>
   readonly sentAt: Prisma.FieldRef<"CampaignRecipient", 'DateTime'>
