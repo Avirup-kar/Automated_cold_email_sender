@@ -21,8 +21,13 @@ model User {
   image         String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
-  sessions      Session[]
-  accounts      Account[]
+
+  sessions Session[]
+  accounts Account[]
+
+  // Your application relations
+  campaigns       Campaign[]
+  gmailConnection GmailConnection?
 
   @@unique([email])
   @@map("user")
@@ -76,4 +81,72 @@ model Verification {
 
   @@index([identifier])
   @@map("verification")
+}
+
+model Campaign {
+  id          String   @id @default(cuid())
+  userId      String
+  name        String
+  scheduledAt DateTime?
+  status      CampaignStatus @default(DRAFT)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  user       User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  recipients CampaignRecipient[]
+
+  @@index([userId])
+  @@map("campaign")
+}
+
+model CampaignRecipient {
+  id         String          @id @default(cuid())
+  campaignId String
+  email      String
+  message    String
+  status     RecipientStatus @default(PENDING)
+  sentAt     DateTime?
+  error      String?
+  createdAt  DateTime        @default(now())
+  updatedAt  DateTime        @updatedAt
+
+  campaign Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+
+  @@index([campaignId])
+  @@map("campaign_recipient")
+}
+
+model GmailConnection {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+
+  gmailEmail   String
+  gmailImage   String?  // Google/Gmail profile image URL
+
+  accessToken  String
+  refreshToken String?
+  expiresAt    DateTime?
+  scope        String?
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("gmail_connection")
+}
+
+enum CampaignStatus {
+  DRAFT
+  SCHEDULED
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum RecipientStatus {
+  PENDING
+  PROCESSING
+  SENT
+  FAILED
 }
