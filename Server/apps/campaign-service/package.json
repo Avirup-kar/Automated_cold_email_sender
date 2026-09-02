@@ -85,8 +85,11 @@
   "dependencies": {
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0",
+    "@nestjs/microservices": "^11.2.3",
     "@nestjs/platform-express": "^11.0.0",
     "@org/database": "^0.0.1",
+    "@org/event-contracts": "^0.0.1",
+    "kafkajs": "^2.2.4",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.0",
     "tslib": "^2.3.0"

@@ -5,19 +5,22 @@ import type {
   CreateCampaignRequest,
   GetCampaignsRequest,
 } from './campaign.types';
+import { CampaignEventPublisher } from './events/campaign-event.publisher';
 
 @Injectable()
 export class CampaignService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly campaignEventPublisher: CampaignEventPublisher,
+  ) {}
 
-  createCampaign(request: CreateCampaignRequest) {
-    return this.prisma.campaign.create({
+  async createCampaign(request: CreateCampaignRequest) {
+    const campaign = await this.prisma.campaign.create({
       data: {
         userId: request.userId,
         name: request.name,
-        scheduledAt: request.scheduledAt
-          ? new Date(request.scheduledAt)
-          : null,
+        scheduledAt: request.scheduledAt ? new Date(request.scheduledAt) : null,
+        status: 'SCHEDULED',
         recipients: {
           create: request.recipients.map((recipient) => ({
             email: recipient.email,
@@ -28,6 +31,14 @@ export class CampaignService {
       },
       include: { recipients: true },
     });
+
+    await this.campaignEventPublisher.publishCampaignScheduled({
+      campaignId: campaign.id,
+      userId: campaign.userId,
+      scheduledAt: campaign.scheduledAt?.toISOString() ?? request.scheduledAt,
+    });
+
+    return campaign;
   }
 
   getCampaigns(request: GetCampaignsRequest) {

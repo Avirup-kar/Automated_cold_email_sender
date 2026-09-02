@@ -35,6 +35,9 @@
     },
     {
       "path": "./apps/api-gateway"
+    },
+    {
+      "path": "./libs/event-contracts"
     }
   ],
   "compilerOptions": {
